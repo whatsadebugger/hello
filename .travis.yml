@@ -17,11 +17,9 @@ before_install:
 
 install:
   - dep ensure
-  - cd ..
 
 script:
   - goverage -v -coverprofile=coverage.out ./...
-  - cd ..
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
