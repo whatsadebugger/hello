@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 
 	"github.com/urfave/cli"
 )
@@ -16,6 +17,18 @@ func main() {
 		cli.BoolFlag{
 			Name:  "file, f",
 			Usage: "file input path",
+		},
+	}
+	app.Commands = []cli.Command{
+		cli.Command{
+			Name:   "add",
+			Usage:  "add two arguments",
+			Action: add,
+		},
+		cli.Command{
+			Name:   "multiply",
+			Usage:  "multiply two arguments",
+			Action: multiply,
 		},
 	}
 
@@ -33,6 +46,26 @@ func dostuff(c *cli.Context) error {
 		name = c.Args()[0]
 	}
 	fmt.Print(name, "\n")
+
+	return nil
+}
+
+func add(c *cli.Context) error {
+	args := c.Args()
+	a, _ := strconv.Atoi(args[0])
+
+	b, _ := strconv.Atoi(args[1])
+	fmt.Println(a + b)
+
+	return nil
+}
+
+func multiply(c *cli.Context) error {
+	args := c.Args()
+	a, _ := strconv.Atoi(args[0])
+
+	b, _ := strconv.Atoi(args[1])
+	fmt.Println(a * b)
 
 	return nil
 }
