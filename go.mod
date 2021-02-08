@@ -7,5 +7,3 @@ require (
 	rsc.io/quote/v3 v3.1.0
 	rsc.io/sampler v1.3.1 // indirect
 )
-
-replace github.com/whatsadebugger/greetings => ../greetings
