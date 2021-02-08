@@ -1,13 +1,13 @@
-package main
+package hello
 
 import (
-	"fmt"
-
-	"github.com/whatsadebugger/greetings"
+	"rsc.io/quote/v3"
 )
 
-func main() {
-	// Get a greeting message and print it.
-	message := greetings.Hello("Gladys")
-	fmt.Println(message)
+func Hello() string {
+	return quote.HelloV3()
+}
+
+func Proverb() string {
+	return quote.Concurrency()
 }
